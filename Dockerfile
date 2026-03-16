@@ -8,10 +8,22 @@ RUN apt-get update \
     gosu \
     procps \
     python3 \
+    python3-pip \
     build-essential \
     ffmpeg \
+    imagemagick \
+    chromium \
+    fonts-liberation \
+    fonts-noto-color-emoji \
+    fonts-noto-cjk \
     zip \
   && rm -rf /var/lib/apt/lists/*
+
+# yt-dlp for downloading reference videos
+RUN pip3 install --break-system-packages yt-dlp
+
+# Allow ImageMagick to process common image/video formats
+RUN sed -i 's/<policy domain="coder" rights="none"/<policy domain="coder" rights="read|write"/g' /etc/ImageMagick-6/policy.xml 2>/dev/null || true
 
 RUN npm install -g openclaw@2026.3.8
 
