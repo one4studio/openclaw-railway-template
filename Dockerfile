@@ -9,6 +9,7 @@ RUN apt-get update \
     procps \
     python3 \
     build-essential \
+    ffmpeg \
     zip \
   && rm -rf /var/lib/apt/lists/*
 
