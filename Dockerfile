@@ -25,7 +25,7 @@ RUN pip3 install --break-system-packages yt-dlp
 # Allow ImageMagick to process common image/video formats
 RUN sed -i 's/<policy domain="coder" rights="none"/<policy domain="coder" rights="read|write"/g' /etc/ImageMagick-6/policy.xml 2>/dev/null || true
 
-RUN npm install -g openclaw@2026.3.8
+RUN npm install -g openclaw@2026.3.13
 
 WORKDIR /app
 
